@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+
+@layer base{
+    html{
+        scroll-behavior: smooth
+    }
+}
+
+body{
+    font-family: "intent", -apple-system, BlinkSytemFont, "Sego UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    background-color: #0f172a
+}
