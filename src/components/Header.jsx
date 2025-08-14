@@ -48,7 +48,8 @@ function Header() {
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item, index) => {
               return (
-                <button
+                <button key={index}
+                onClick={()=>scrollToSection(item.href)}
                   className="text-white hover:text-blue-200 hover:rounded transition-all duration-300 font-medium relative group"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >

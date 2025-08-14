@@ -59,11 +59,10 @@ function Hero() {
                       ? "opacity-100 translate-y-0"
                       : "opacity-0 translate-y-10"
                   }`}
-              >
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque
-                minima voluptates, maiores eligendi quos dolorem sint alias
-                atque sit cum obcaecati omnis, exercitationem tempora quod,
-                inventore corporis repellat id magnam!
+              >I’m a certified web developer skilled in HTML, CSS, JavaScript, 
+              and React. With training from FreeCodeCamp and Udemy, I’m currently 
+              studying Computer Science at the University of the People and building modern, user-friendly web applications.
+               Click the ‘Learn More’ button to know more.
               </p>
               <div className={`flex flex-wrap gap-4 pt-4 transition-all duration-1000
                  ${
