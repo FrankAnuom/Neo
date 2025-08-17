@@ -1,10 +1,38 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Github, Send, X } from "lucide-react";
 import phone from "../assets/phone.png";
 import mail from "../assets/mail.png";
+import emailjs from "@emailjs/browser";
 
 function Contact() {
   const [isVisible, setIsVisible] = useState(false);
+  const form = useRef();
+  const [email, setEmail] = useState("");
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_yt68s8x", // your service ID
+        "template_3z6auc3", // your template ID
+        form.current, // form reference
+        "DoCe6RO9nRWJ3klHz" // your public key
+      )
+      .then(
+        () => {
+          alert("Message sent successfully");
+          form.current.reset();
+        },
+        (error) => {
+          alert("Failed to send message, please try again.");
+          console.error(error);
+        }
+      );
+  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -48,10 +76,10 @@ function Contact() {
             Let me be part of next big thing!
           </h2>
           <p className="text-gray-300 text-lg max-w-2xl mx-auto">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
-            itaque sint officiis doloremque alias quaerat nihil aliquid ad rem,
-            fugiat qui sapiente quasi maxime dolorem temporibus ducimus
-            explicabo quo molestias provident consequuntur!
+            If you’re looking for someone reliable, creative, and ready to
+            deliver results, that’s me! I bring dedication, fresh ideas, and the
+            drive to get things done the right way. So why stress over it?
+            Contact me today after all, are you going to do the job yourself?
           </p>
         </div>
         <div className="grid lg:grid-cols-2 gap-16">
@@ -67,9 +95,7 @@ function Contact() {
               Contact Information
             </h3>
             <p className="text-gray-300 leading-relaxed mb-8">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum
-              nesciunt itaque corrupti alias! Alias sequi nihil enim recusandae
-              amet, facere ex placeat,
+            I am dedicated, skilled, and ready to contribute meaningfully. Contact me to bring value and results to your team.
             </p>
             <div className="space-y-4">
               {[
@@ -132,7 +158,8 @@ function Contact() {
               <h4 className="text-lg font-medium text-white nb-4">Follow Me</h4>
               <div className="flex gap-4">
                 <a
-                  href=""
+                  href="https://github.com/FrankAnuom"
+                  target="_blank"
                   className="w-12 h-12 bg-slate-900 rounded-lg flex justify-center hover:bg-blue-800 hover:text-white
                   trnasition-all duration-300 group border border-slate-700 hover:border-blue-800 hover:scale-110 hover:rotate-6"
                 >
@@ -140,7 +167,8 @@ function Contact() {
                 </a>
 
                 <a
-                  href=""
+                  href="https://x.com/neoryte"
+                  target="_blank"
                   className="w-12 h-12 bg-slate-900 rounded-lg flex justify-center hover:bg-blue-800 hover:text-white
                   trnasition-all duration-300 group border border-slate-700 hover:border-blue-800 hover:scale-110 hover:rotate-6"
                 >
@@ -165,7 +193,7 @@ function Contact() {
                 Send Message
               </h3>
 
-              <form>
+              <form ref={form} onSubmit={sendEmail}>
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="group">
                     <label className="block text-sm font-semibold text-gray-300 mb-2 transition-all duration-300">
@@ -174,6 +202,7 @@ function Contact() {
                     <input
                       type="text"
                       id="name"
+                      name="user_name"
                       className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white
                     placeholder:gray-400 focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all
                     duration-300 hover:border-blue-400"
@@ -188,6 +217,7 @@ function Contact() {
                     <input
                       type="email"
                       id="email"
+                      name="user_email"
                       className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white
                     placeholder:gray-400 focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all
                     duration-300 hover:border-blue-400"
@@ -203,6 +233,7 @@ function Contact() {
                   <input
                     type="text"
                     id="name"
+                    name="subject"
                     className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white
                     placeholder:gray-400 focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all
                     duration-300 hover:border-blue-400"
@@ -216,7 +247,8 @@ function Contact() {
                   </label>
                   <textarea
                     type="text"
-                    id="name"
+                    id="message"
+                    name="message"
                     className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white
                     placeholder:gray-400 focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all
                     duration-300 hover:border-blue-400 resize-none"

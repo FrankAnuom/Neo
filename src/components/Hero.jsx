@@ -85,7 +85,7 @@ function Hero() {
                  font-medium flex items-center gap-2 group hover:scale-105 "
                 >
                   <a
-                    href="https://api.whatsapp.com/qr/HR4KC53VG3KGL1?autoload=1&app_absent=0"
+                    href="https://wa.me/qr/HR4KC53VG3KGL1"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -118,7 +118,7 @@ function Hero() {
                 >
                   <X className="w-12 h-12" />
                 </a>
-                <a href="" target="_blank" rel="noopener noreferrer">
+                <a href="https://wa.me/qr/HR4KC53VG3KGL1" target="_blank" rel="noopener noreferrer">
                   <FaWhatsapp
                     className="w-12 h-12 rounded-lg flex items-center justify-center bg-green-500 hover:text-blue
                 transition-all duration-300 group hover:scale-110 hover:rotate-6"

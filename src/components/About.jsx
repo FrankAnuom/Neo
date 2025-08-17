@@ -108,7 +108,7 @@ function About() {
                 <p className={`transition-all duration-1000 delay-700`}>
                   My deep interest lies at the intersection of technology,
                   healthcare, and artificial intelligence. I believe that
-                  tech—especially AI—has the potential to transform healthcare
+                  tech especially AI has the potential to transform healthcare
                   delivery, making it smarter, more efficient, and more
                   accessible. My journey into tech comes from a lifelong love
                   for innovation and problem-solving, and I am committed to

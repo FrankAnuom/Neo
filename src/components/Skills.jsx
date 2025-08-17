@@ -27,11 +27,11 @@ function Skills() {
   }, []);
 
   const skills = [
-    { name: "Wordpress web design", level: 90 },
-    { name: "Facebook Ad expert", level: 70 },
-    { name: "HTML & CSS", level: 80 },
-    { name: "JavaScript", level: 65 },
-    { name: "React.js", level: 60 },
+    { name: "Wordpress web design", level: 94 },
+    { name: "Facebook Ad expert", level: 90 },
+    { name: "HTML & CSS", level: 94 },
+    { name: "JavaScript", level: 93 },
+    { name: "React.js", level: 90 },
   ];
 
   const education = [
