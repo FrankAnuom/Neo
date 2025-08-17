@@ -78,9 +78,9 @@ function Header() {
 
         {isMenuOpen && (
           <nav className="md:hidden mt-4 pb-4 border-t border-slate-800 pt-4 bg-slate-800 rounded-lg shadow-lg ">
-            {navItems.map((item) => {
+            {navItems.map((item, index) => {
               return (
-                <button className="block w-full text-center py-3 px-4 text-white  hover:bg-slate-blue-800 transition-all duration 300">
+                <button key={index} className="block w-full text-center py-3 px-4 text-white  hover:bg-slate-blue-800 transition-all duration 300">
                   {item.name}
                 </button>
               );

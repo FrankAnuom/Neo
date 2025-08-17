@@ -4,7 +4,7 @@ import currency from "../assets/currency.jpg";
 import note from "../assets/note.jpg";
 import gallery from "../assets/gallery.png";
 import weather from "../assets/weather.jpg";
-import { ExternalLinkIcon, Github } from "lucide-react";
+import { ExternalLinkIcon, Github, Key } from "lucide-react";
 
 function Projects() {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,7 +18,7 @@ function Projects() {
       },
       { threshold: 0.3 }
     );
-    const element = document.getElementById("projects");
+    const element = document.getElementById("project");
     if (element) observer.observe(element);
     return () => observer.disconnect();
   }, []);
@@ -92,12 +92,14 @@ function Projects() {
         ></div>
       </div>
       <div className="container mx-auto px-6 relative z-10">
-        <div className={`text-center mb-16 transition-all duration-1000
+        <div
+          className={`text-center mb-16 transition-all duration-1000
            ${
-                isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 translate-y-10"
-              }`}>
+             isVisible
+               ? "opacity-100 translate-y-0"
+               : "opacity-0 translate-y-10"
+           }`}
+        >
           <p className="text-blue-800 font-semibold text-lg mb-4">Portfolio</p>
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Featured Projects
@@ -111,6 +113,7 @@ function Projects() {
           {projects.map((project, index) => {
             return (
               <div
+                key={index}
                 className={`group bg-scale-900 rounded-xl shadow-md hover:shadow-lg transition-all
             duration-1000 delay-600 overflow-hidden border border-slate-700 hoover:border-white hover:scale-105
             ${
@@ -163,9 +166,11 @@ function Projects() {
                   <div className="flex flex-wrap gap-1 mb-4">
                     {project.technologies.map((tech, techIndex) => {
                       return (
-                        <span className="bg-blue-800 text-white px-2 py-1 rounded-full text-xs font-medium">
-                          {tech}
-                        </span>
+                        <div key={techIndex}>
+                          <span className="bg-blue-800 text-white px-2 py-1 rounded-full text-xs font-medium">
+                            {tech}
+                          </span>
+                        </div>
                       );
                     })}
                   </div>

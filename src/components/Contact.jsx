@@ -1,9 +1,25 @@
-import React from "react";
-import { Github, X } from "lucide-react";
+import React, { useEffect, useState } from "react";
+import { Github, Send, X } from "lucide-react";
 import phone from "../assets/phone.png";
 import mail from "../assets/mail.png";
 
 function Contact() {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.intersectionRatio) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    const element = document.getElementById("contact");
+    if (element) observer.observe(element);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <section
       id="contact"
@@ -19,7 +35,12 @@ function Contact() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className={`text-center mb-16 transition-all duration-1000`}>
+        <div
+          className={`text-center mb-16 transition-all duration-1000
+          ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}
+        >
           <p className="text-blue-800 font-semibold text-lg mb-4">
             Get in Touch
           </p>
@@ -34,7 +55,14 @@ function Contact() {
           </p>
         </div>
         <div className="grid lg:grid-cols-2 gap-16">
-          <div className={`space-y-8 transition-all duration-1000`}>
+          <div
+            className={`space-y-8 transition-all duration-1000
+            ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
+          >
             <h3 className="text-2xl font-bold text-white mb-6 ">
               Contact Information
             </h3>
@@ -61,7 +89,12 @@ function Contact() {
                     key={index}
                     className={`flex items-center gap-4 p-4 bg-slate-900 rounded-lg hover:bg-slate-700
                 transition-all duration-300 border border-slate-700 hover:border-blue-800 group cursor-pointer transform
-                hover:scale-105`}
+                hover:scale-105
+                ${
+                  isVisible
+                    ? "opacity-100 translate-y-0"
+                    : "opacity-0 translate-y-10"
+                }`}
                     style={{ animateDelay: `${index * 200 + 300}ms` }}
                   >
                     <div
@@ -88,7 +121,14 @@ function Contact() {
               })}
             </div>
 
-            <div className={`pt-8 transition-all duration-1000 delay-900`}>
+            <div
+              className={`pt-8 transition-all duration-1000 delay-900
+              ${
+                isVisible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-10"
+              }`}
+            >
               <h4 className="text-lg font-medium text-white nb-4">Follow Me</h4>
               <div className="flex gap-4">
                 <a
@@ -109,26 +149,92 @@ function Contact() {
               </div>
             </div>
           </div>
-          <div className={`transition-all duration-1000 delay-300`}>
           <div
-            className="bg-slate-900 p-8  rounded-2xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300
-          "
+            className={`transition-all duration-1000 delay-300
+            ${
+              isVisible
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-10"
+            }`}
           >
-            <h3 className="text-2xl font-bold text-white mb-6">Send Message</h3>
+            <div
+              className="bg-slate-900 p-8  rounded-2xl border border-slate-700 hover:border-blue-500/50 transition-all duration-300
+          "
+            >
+              <h3 className="text-2xl font-bold text-white mb-6">
+                Send Message
+              </h3>
 
-            <form>
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="group">
-                  <label className="block text-sm font-semibold text-gray-300 mb-2 transition-all duration-300 text-white">Full Name</label>
-
+              <form>
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="group">
+                    <label className="block text-sm font-semibold text-gray-300 mb-2 transition-all duration-300">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white
+                    placeholder:gray-400 focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all
+                    duration-300 hover:border-blue-400"
+                      placeholder="Enter your full name"
+                      required
+                    />
+                  </div>
+                  <div className="group">
+                    <label className="block text-sm font-semibold text-gray-300 mb-2 transition-all duration-300">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white
+                    placeholder:gray-400 focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all
+                    duration-300 hover:border-blue-400"
+                      placeholder="Enter your E-mail address"
+                      required
+                    />
+                  </div>
                 </div>
-
-              </div>
-            </form>
+                <div className="group mt-5">
+                  <label className="block text-sm font-semibold text-gray-300 mb-2 transition-all duration-300">
+                    Subject
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white
+                    placeholder:gray-400 focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all
+                    duration-300 hover:border-blue-400"
+                    placeholder="Project discussion"
+                    required
+                  />
+                </div>
+                <div className="group mt-5">
+                  <label className="block text-sm font-semibold text-gray-300 mb-2 transition-all duration-300">
+                    Message
+                  </label>
+                  <textarea
+                    type="text"
+                    id="name"
+                    className="w-full bg-slate-800 border border-slate-700 rounded-lg px-4 py-3 text-white
+                    placeholder:gray-400 focus:ring-2 focus:ring-blue-800 focus:border-transparent transition-all
+                    duration-300 hover:border-blue-400 resize-none"
+                    placeholder="Tell me about your project"
+                    required
+                  />
+                </div>
+                <button
+                  className="mt-5 w-full bg-blue-800 text-white py-4 rounded-lg hover:bg-blue-400 transition-all duration-300
+                  font-semibold flex items-center justify-center gap-2 shadow-lg hover:shadow-lg hover:scale-105 group"
+                >
+                  Send Message
+                  <Send className="w-5 h-5 transition-all group-hover:translate-x-1 group-hover:translate-y-1" />
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-        </div>
-        
       </div>
     </section>
   );
