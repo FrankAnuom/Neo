@@ -36,14 +36,14 @@ function Skills() {
 
   const education = [
     {
-      year: "2024-present",
+      year: "2024-PRESENT",
       title: "M.B.Ch.B",
       institution: "Obafemi Awolowo University.",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus vel inventore, quas illum iste recusanda",
     },
     {
-      year: "2025-present",
+      year: "2025-PRESENT",
       title: "BSC",
       institution: "University of the people, US.",
       description:
