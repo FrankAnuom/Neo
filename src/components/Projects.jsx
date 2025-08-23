@@ -18,7 +18,7 @@ function Projects() {
       },
       { threshold: 0.3 }
     );
-    const element = document.getElementById("project");
+    const element = document.getElementById("projects");
     if (element) observer.observe(element);
     return () => observer.disconnect();
   }, []);
