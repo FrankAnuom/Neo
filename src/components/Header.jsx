@@ -19,14 +19,14 @@ function Header() {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsOpen(false);
+    setIsOpen(false); // close mobile menu after clicking
   };
 
   const navItems = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
+    { name: "Projects", href: "#project" },
     { name: "Contact", href: "#contact" },
   ];
 
@@ -45,21 +45,22 @@ function Header() {
               B8G
             </span>
           </div>
+
           {/* desktop menu */}
           <nav className="hidden md:flex space-x-8">
-            {navItems.map((item, index) => {
-              return (
-                <button key={index}
-                onClick={()=>scrollToSection(item.href)}
-                  className="text-white hover:text-blue-200 hover:rounded transition-all duration-300 font-medium relative group"
-                  style={{ animationDelay: `${index * 0.1}s` }}
-                >
-                  {item.name}
-                  <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
-                </button>
-              );
-            })}
+            {navItems.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToSection(item.href)}
+                className="text-white hover:text-blue-200 hover:rounded transition-all duration-300 font-medium relative group"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {item.name}
+                <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"></span>
+              </button>
+            ))}
           </nav>
+
           <a href={Resume} download="Resume">
             
           <button
@@ -72,7 +73,8 @@ function Header() {
           </button>
 
           </a>
-          {/* mobile menu */}
+
+          {/* mobile menu toggle */}
           <button
             className="text-white md:hidden"
             onClick={() => setIsOpen(!isMenuOpen)}
@@ -81,26 +83,31 @@ function Header() {
           </button>
         </div>
 
+        {/* mobile menu */}
         {isMenuOpen && (
-          <nav className="md:hidden mt-4 pb-4 border-t border-slate-800 pt-4 bg-slate-800 rounded-lg shadow-lg ">
-            {navItems.map((item, index) => {
-              return (
-                <button key={index} className="block w-full text-center py-3 px-4 text-white  hover:bg-slate-blue-800 transition-all duration 300">
-                  {item.name}
-                </button>
-              );
-            })}
-            <a href={Resume} download="Resume" className="flex justify-center">
-  <button
-    className="flex items-center gap-2 
-      bg-white text-blue-800 mt-2 px-6 py-2.5 rounded-lg 
-      hover:bg-blue-500 transition-all duration-300 font-medium
-      shadow shadow-lg hover:shadow-xl hover:scale-105"
-  >
-    Download CV Now
-  </button>
-</a>
-
+          <nav className="md:hidden mt-4 pb-4 border-t border-slate-800 pt-4 bg-slate-800 rounded-lg shadow-lg">
+            {navItems.map((item, index) => (
+              <button
+                key={index}
+                onClick={() => scrollToSection(item.href)}
+                className="block w-full text-center py-3 px-4 text-white hover:bg-blue-800 transition-all duration-300"
+              >
+                {item.name}
+              </button>
+            ))}
+           
+          <a href={Resume} download="Resume" className="flex justify-center">
+            
+            <button
+              className="items-center gap-2 
+             bg-white text-blue-800 mt-2 px-6 py-2.5 rounded-lg 
+             hover:bg-bluee-500 transition-all duration-300 font-medium
+             shadow shadow-lg hover:shadow-xl hover:scale-105"
+            >
+              Download CV Now
+            </button>
+  
+            </a>
           </nav>
         )}
       </div>
