@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
-import Resume from "../assets/Resume.pdf"
+import Resume from "../assets/Resume.pdf";
 
 function Header() {
   const [isMenuOpen, setIsOpen] = useState(false);
@@ -49,8 +49,9 @@ function Header() {
           <nav className="hidden md:flex space-x-8">
             {navItems.map((item, index) => {
               return (
-                <button key={index}
-                onClick={()=>scrollToSection(item.href)}
+                <button
+                  key={index}
+                  onClick={() => scrollToSection(item.href)}
                   className="text-white hover:text-blue-200 hover:rounded transition-all duration-300 font-medium relative group"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
@@ -61,16 +62,14 @@ function Header() {
             })}
           </nav>
           <a href={Resume} download="Resume">
-            
-          <button
-            className="hidden md:flex items-center gap-2 
+            <button
+              className="hidden md:flex items-center gap-2 
            bg-white text-blue-800 mt-2 px-6 py-2.5 rounded-lg 
            hover:bg-bluee-500 transition-all duration-300 font-medium
            shadow shadow-lg hover:shadow-xl hover:scale-105"
-          >
-            Download CV Now
-          </button>
-
+            >
+              Download CV Now
+            </button>
           </a>
           {/* mobile menu */}
           <button
@@ -85,22 +84,23 @@ function Header() {
           <nav className="md:hidden mt-4 pb-4 border-t border-slate-800 pt-4 bg-slate-800 rounded-lg shadow-lg ">
             {navItems.map((item, index) => {
               return (
-                <button key={index} className="block w-full text-center py-3 px-4 text-white  hover:bg-slate-blue-800 transition-all duration 300">
+                <button
+                  key={index}
+                  className="block w-full text-center py-3 px-4 text-white  hover:bg-slate-blue-800 transition-all duration 300"
+                >
                   {item.name}
                 </button>
               );
             })}
             <a href={Resume} download="Resume">
-            
-            <button
-              className="hidden md:flex items-center gap-2 
-             bg-white text-blue-800 mt-2 px-6 py-2.5 rounded-lg 
-             hover:bg-bluee-500 transition-all duration-300 font-medium
-             shadow shadow-lg hover:shadow-xl hover:scale-105"
-            >
-              Download CV Now
-            </button>
-  
+              <button
+                className="flex items-center gap-2 
+      bg-white text-blue-800 mt-2 px-6 py-2.5 rounded-lg 
+      hover:bg-blue-500 transition-all duration-300 font-medium
+      shadow shadow-lg hover:shadow-xl hover:scale-105"
+              >
+                Download CV Now
+              </button>
             </a>
           </nav>
         )}
