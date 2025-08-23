@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import Resume from "../assets/Resume.pdf"
 
 function Header() {
   const [isMenuOpen, setIsOpen] = useState(false);
@@ -59,6 +60,8 @@ function Header() {
               );
             })}
           </nav>
+          <a href={Resume} download="Resume">
+            
           <button
             className="hidden md:flex items-center gap-2 
            bg-white text-blue-800 mt-2 px-6 py-2.5 rounded-lg 
@@ -67,6 +70,8 @@ function Header() {
           >
             Download CV Now
           </button>
+
+          </a>
           {/* mobile menu */}
           <button
             className="text-white md:hidden"
@@ -85,12 +90,18 @@ function Header() {
                 </button>
               );
             })}
+            <a href={Resume} download="Resume">
+            
             <button
-              className="mt-4 w-full flex items-center text-blue-800  justify-center gap-2 bg-white px-6 py-2.5
-           rounded-lg hover:bg-blue-800 transition-all duration-300"
+              className="hidden md:flex items-center gap-2 
+             bg-white text-blue-800 mt-2 px-6 py-2.5 rounded-lg 
+             hover:bg-bluee-500 transition-all duration-300 font-medium
+             shadow shadow-lg hover:shadow-xl hover:scale-105"
             >
               Download CV Now
             </button>
+  
+            </a>
           </nav>
         )}
       </div>
