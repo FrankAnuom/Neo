@@ -83,7 +83,7 @@ function Projects() {
 
   return (
     <section
-      id="project"
+      id="projects"
       className="py-24 bg-slate-950 relative overflow-hidden"
     >
       <div className="absolute inset-0">
