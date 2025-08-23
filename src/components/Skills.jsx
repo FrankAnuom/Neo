@@ -40,14 +40,14 @@ function Skills() {
       title: "M.B.Ch.B",
       institution: "Obafemi Awolowo University.",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus vel inventore, quas illum iste recusanda",
+        "Studying M.B.Ch.B at Obafemi Awolowo University (OAU) offers a solid foundation in medical sciences, hands-on clinical training at OAUTHC, and a tradition of excellence that prepares students to become skilled and compassionate doctors.",
     },
     {
       year: "2025-PRESENT",
       title: "BSC",
       institution: "University of the people, US.",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus vel inventore, quas illum iste recusanda",
+        "Studying Computer Science at University of the People (U.S.) provides a flexible, tuition-free, and accredited program that builds strong problem-solving and programming skills, preparing students for careers in technology and innovation.",
     },
   ];
 
